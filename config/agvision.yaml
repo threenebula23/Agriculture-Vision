@@ -11,7 +11,7 @@ segmentation:
   model_id: nvidia/segformer-b4-finetuned-ade-512-512
   num_labels: 2
   epochs: 40
-  batch_size: 4
+  batch_size: 11
   val_batch_size: 2
   gradient_accumulation_steps: 2
   num_workers: 4
