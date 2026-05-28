@@ -1,0 +1,24 @@
+# Serving SegFormer — см. model/README.md
+
+serving:
+  checkpoint_path: model/weights/best_iou.pth
+  device: auto
+  fp16: true
+  tile_size: 512
+  threshold: 0.5
+  tta: false
+  letterbox: true
+  sliding_stride: 256
+  sliding_tta: false
+  max_side_px: 4096
+  max_upload_bytes: 52428800
+  headland_margin_px: 12
+  polygon_simplify: 2.5
+  min_polygon_area_px: 500.0
+  include_geojson: false
+  geo_origin_lat: 55.75
+  geo_origin_lon: 37.62
+  geo_m_per_px: 0.05
+  api_host: 0.0.0.0
+  api_port: 8080
+  max_concurrent_inferences: 1
