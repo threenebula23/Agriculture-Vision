@@ -4,6 +4,13 @@
 
 Метрики по ТЗ §5.1: IoU ≥ 0.90, Recall ≥ 0.95, Precision ≥ 0.90 (поля); F1 ≥ 0.80 (точки, на pseudo-GT).
 
+## Результаты
+
+1. прогон
+```
+Epoch: 2 val: {'iou_mean': 0.9398277102289697, 'precision_mean': 0.9424682089160502, 'recall_mean': 0.9955257925503495, 'n_samples': 1000}
+```
+
 ## Быстрый старт
 
 ```bash
@@ -43,3 +50,5 @@ field_detecter/
 scripts/download_agvision.py
 config/agvision.yaml
 ```
+
+
