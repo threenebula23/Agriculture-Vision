@@ -15,6 +15,8 @@ Epoch: 2 val: {'iou_mean': 0.9398277102289697, 'precision_mean': 0.9424682089160
 ```
 Epoch: 12 val: {'iou_mean': 0.9461152559973611, 'precision_mean': 0.9513153409510501, 'recall_mean': 0.9928616511294276, 'n_samples': 1000}
 ```
+[скачать модельку](https://disk.yandex.by/d/K2Ll5HfISWNJ-w)
+
 
 ## Быстрый старт
 
