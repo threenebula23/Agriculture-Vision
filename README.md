@@ -42,6 +42,10 @@ python -m field_detecter.train_det --config config/agvision.yaml
 
 Конфиг: [`config/agvision.yaml`](config/agvision.yaml)
 
+## Продакшен (FP16 + API)
+
+Слой интеграции: [`model/README.md`](model/README.md) — веса в `model/weights/best_iou.pth`, FP16, FastAPI, CLI `python -m model`.
+
 ## Структура
 
 ```
