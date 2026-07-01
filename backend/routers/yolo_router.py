@@ -6,6 +6,7 @@
 
 from __future__ import annotations
 from io import BytesIO
+from typing import Optional
 import cv2
 from fastapi import APIRouter, File, UploadFile, HTTPException, status, BackgroundTasks
 from starlette.responses import JSONResponse, Response
@@ -52,14 +53,14 @@ async def health_check():
 
 @router.post("/segment", response_model=YoloSegmentResponse)
 async def segment_image(
+    background_tasks: BackgroundTasks,
     file: UploadFile = File(...),
-    threshold: float | None = None,
-    tta: bool | None = None,
+    threshold: Optional[float] = None,
+    tta: Optional[bool] = None,
     use_sliding: bool = False,
     headland_margin_px: int | None = None,
     include_mask_png: bool = False,
-    include_geojson: bool | None = None,
-    background_tasks: BackgroundTasks | None = None,
+    include_geojson: Optional[bool] = None,
 ):
     """
     Сегментация объектов на изображении с помощью YOLO.
@@ -141,8 +142,8 @@ async def get_classes():
 @router.post("/render")
 async def render_segmentation(
     file: UploadFile = File(...),
-    threshold: float | None = None,
-    tta: bool | None = None,
+    threshold: Optional[float] = None,
+    tta: Optional[bool] = None,
 ):
     """
     Визуализация сегментации YOLO — возвращает PNG-изображение

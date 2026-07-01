@@ -5,6 +5,7 @@
 """
 
 from __future__ import annotations
+from typing import Optional
 from io import BytesIO
 import cv2
 import numpy as np
@@ -54,9 +55,9 @@ async def health_check():
 @router.post("/segment", response_model=SegmentResponse)
 async def segment_image(
     file: UploadFile = File(...),
-    threshold: float | None = None,
+    threshold: Optional[float] = None,
     include_mask_png: bool = False,
-    include_geojson: bool | None = None,
+    include_geojson: Optional[bool] = None,
 ):
     """
     Семантическая сегментация изображения с помощью SegFormer.
@@ -106,7 +107,7 @@ async def segment_image(
 @router.post("/render")
 async def render_segmentation(
     file: UploadFile = File(...),
-    threshold: float | None = None,
+    threshold: Optional[float] = None,
 ):
     """
     Визуализация сегментации SegFormer — возвращает PNG-изображение

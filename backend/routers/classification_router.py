@@ -7,8 +7,7 @@
 from __future__ import annotations
 from fastapi import APIRouter, HTTPException, status
 from pydantic import BaseModel, Field
-from typing import Any
-
+from typing import Any, Optional, List 
 from models.settings import Settings
 
 router = APIRouter(prefix="/api/v1/classification", tags=["Crop Classification"])
@@ -26,7 +25,7 @@ class CropClassificationRequest(BaseModel):
         ...,
         description="Изображение полигона (область crop) в base64 (JPEG/PNG)",
     )
-    threshold: float | None = Field(
+    threshold: Optional[float] = Field(
         None,
         description="Порог уверенности для пометки 'требует ручной проверки'",
         ge=0.0,
@@ -43,15 +42,15 @@ class CropProbability(BaseModel):
 class CropClassificationResponse(BaseModel):
     """Результат классификации культуры."""
     ok: bool = True
-    predicted_class: str | None = Field(
+    predicted_class: Optional[str] = Field(
         None,
         description="Класс с максимальной вероятностью",
     )
-    confidence: float | None = Field(
+    confidence: Optional[float] = Field(
         None,
         description="Уверенность в предсказанном классе",
     )
-    probabilities: list[CropProbability] = Field(
+    probabilities: List[CropProbability] = Field(
         default_factory=list,
         description="Распределение вероятностей по всем классам",
     )
@@ -120,7 +119,6 @@ async def classify_crop(request: CropClassificationRequest):
         # Заглушка
         return _dummy_classifier(request.image_base64, threshold)
 
-    # TODO: Реальный вызов модели классификации
     raise HTTPException(
         status_code=status.HTTP_501_NOT_IMPLEMENTED,
         detail="Crop classifier model is not yet deployed.",

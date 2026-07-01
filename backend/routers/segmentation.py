@@ -9,7 +9,7 @@ from io import BytesIO
 from fastapi import APIRouter, File, UploadFile, HTTPException, status, Query
 from starlette.responses import JSONResponse, Response
 from pydantic import BaseModel, Field
-from typing import Literal
+from typing import Literal, Optional
 
 from models.settings import Settings
 from models.runtime import SegmentationRuntime
@@ -98,10 +98,10 @@ async def segment_image(
     architecture: Literal["yolo", "segformer"] = Query(
         "yolo", description="Архитектура сегментации"
     ),
-    threshold: float | None = None,
-    tta: bool | None = None,
+    threshold: Optional[float] = None,
+    tta: Optional[bool] = None,
     include_mask_png: bool = False,
-    include_geojson: bool | None = None,
+    include_geojson: Optional[bool] = None,
 ):
     """
     Единый endpoint сегментации — автоматически выбирает модель
