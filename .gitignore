@@ -3,6 +3,8 @@ __pycache__/
 *.pyc
 runs/
 outputs/
+model/weights/*.pth
+!model/weights/.gitkeep
 .ipynb_checkpoints/
 data/agvision/
 data/uploads/*
