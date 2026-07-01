@@ -35,7 +35,7 @@ segmentation:
   resume: false
   backup_before_train: true
   early_stop_patience: 10
-  output_dir: outputs/segformer
+  output_dir: model/weights
 
   # 4 канала: NIR,R,G,B + шум + принудительная опора на NIR
   augmentation:

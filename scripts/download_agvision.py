@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+
 """Скачивание Agriculture-Vision с Hugging Face и распаковка."""
 
 from __future__ import annotations

@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-# Ночное обучение SegFormer (4ch NIR+RGB, аугментации, шум)
 set -euo pipefail
 cd "$(dirname "$0")/.."
 export PYTORCH_CUDA_ALLOC_CONF="${PYTORCH_CUDA_ALLOC_CONF:-expandable_segments:True}"
@@ -10,9 +8,9 @@ fi
 
 echo "=== SegFormer overnight train ==="
 echo "Config: config/agvision.yaml"
-echo "Logs: outputs/segformer/train.log"
-mkdir -p outputs/segformer
+echo "Logs: model/weights/train.log"
+mkdir -p model/weights
 
-python -m field_detecter.train_seg --config config/agvision.yaml 2>&1 | tee outputs/segformer/train.log
+python -m field_detecter.train_seg --config config/agvision.yaml 2>&1 | tee model/weights/train.log
 
-echo "Done. Best: outputs/segformer/best_iou.pth"
+echo "Done. Best: model/weights/best_iou.pth"
