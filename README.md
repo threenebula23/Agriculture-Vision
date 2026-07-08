@@ -7,16 +7,23 @@
 ## Результаты
 
 - Первый прогон
+
 ```
 Epoch: 2 val: {'iou_mean': 0.9398277102289697, 'precision_mean': 0.9424682089160502, 'recall_mean': 0.9955257925503495, 'n_samples': 1000}
 ```
 
 - Второй прогон
+
 ```
 Epoch: 12 val: {'iou_mean': 0.9461152559973611, 'precision_mean': 0.9513153409510501, 'recall_mean': 0.9928616511294276, 'n_samples': 1000}
 ```
-[скачать модельку](https://disk.yandex.by/d/K2Ll5HfISWNJ-w)
 
+- Контрольный прогон
+  ```
+  Итог val: {'iou_mean': 0.940880640879388, 'precision_mean': 0.9569229348797582, 'recall_mean': 0.9781622553366535, 'n_samples': 18334}
+  ```
+
+[скачать модельку](https://disk.yandex.by/d/K2Ll5HfISWNJ-w)
 
 ## Быстрый старт
 
@@ -61,5 +68,3 @@ field_detecter/
 scripts/download_agvision.py
 config/agvision.yaml
 ```
-
-
