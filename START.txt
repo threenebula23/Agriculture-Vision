@@ -1,6 +1,4 @@
-Agriculture Vision — Docker (заказчику)
-
-Архив: agriculture-vision-docker.tar.gz (~730 MB, веса внутри)
+Agriculture Vision — Docker 
 
 4 контейнера:
   1) frontend  — веб UI :5173
@@ -16,5 +14,3 @@ Agriculture Vision — Docker (заказчику)
   открыть http://localhost:5173
 
 Подробности: README.md внутри папки.
-
-QGIS-плагин в этот архив не входит.
